@@ -61,7 +61,7 @@ def main() -> None:
         should_buy_min_max_closure(32_000),
         should_sell_min_max_closure(32_000),
     )
-    bot.run("ETH/USD")
+    bot.run("BTC/USD")
 
 
 if __name__ == "__main__":
