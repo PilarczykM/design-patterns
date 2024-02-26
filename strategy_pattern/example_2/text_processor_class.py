@@ -1,4 +1,4 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 import enum
 from typing import List
 
@@ -9,12 +9,15 @@ class OutputFormat(enum.Enum):
 
 
 class ListStrategy(ABC):
+    @abstractmethod
     def start(self, buffer: List[str]) -> None:
         pass
 
+    @abstractmethod
     def end(self, buffer: List[str]) -> None:
         pass
 
+    @abstractmethod
     def add_list_item(self, buffer: List[str], item: str) -> None:
         pass
 
@@ -22,6 +25,12 @@ class ListStrategy(ABC):
 class MarkdownListStrategy(ListStrategy):
     def add_list_item(self, buffer: List[str], item: str) -> None:
         buffer.append(f"  * {item}\n")
+
+    def start(self, buffer: List[str]) -> None:
+        pass
+
+    def end(self, buffer: List[str]) -> None:
+        pass
 
 
 class HtmlListStrategy(ListStrategy):
